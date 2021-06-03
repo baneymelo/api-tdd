@@ -8,7 +8,7 @@ describe("todos", () => {
     .expect("Content-Type", /json/)
     .expect(200)
     .then( res => {
-        expect(res.body).toBe(expect.arrayContaining([
+        expect(res.body).toEqual(expect.arrayContaining([
             expect.objectContaining({
                 name: expect.any(String),
                 completed: expect.any(Boolean),
@@ -45,7 +45,7 @@ describe("todos", () => {
       .expect("Content-Type", /json/)
       .expect(201)
       .then( res => {
-        expect(res.body).toBe(expect.arrayContaining([
+        expect(res.body).toEqual(expect.arrayContaining([
             expect.objectContaining({
                 name: 'take test',
                 completed: false,
