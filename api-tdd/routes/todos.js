@@ -27,5 +27,17 @@ router.get('/:id', function(req, res, next) {
     res.json(found);
 });
 
+router.post('/', function(req, res, next) {
+    const { name } = req.body;
+
+    const newTodo = {
+        id: 3,
+        name,
+        completed: false
+    }
+    todos.push(newTodo)
+
+    res.status(201).json(newTodo)
+});
 
 module.exports = router;
