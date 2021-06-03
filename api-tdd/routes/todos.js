@@ -30,6 +30,8 @@ router.get('/:id', function(req, res, next) {
 router.post('/', function(req, res, next) {
     const { name } = req.body;
 
+    if(typeof name !== "string") res.status(422).json({name: 123})
+
     const newTodo = {
         id: 3,
         name,
