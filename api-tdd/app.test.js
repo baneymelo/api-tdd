@@ -45,12 +45,11 @@ describe("todos", () => {
       .expect("Content-Type", /json/)
       .expect(201)
       .then( res => {
-        expect(res.body).toEqual(expect.arrayContaining([
-            expect.objectContaining({
+        expect(res.body).toEqual(expect.objectContaining({
                 name: 'take test',
                 completed: false,
             })
-        ]))
+        )
     })
 
   });

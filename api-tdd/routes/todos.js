@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const todos = [
+let todos = [
     {
         id: 1,
         name: 'Do something',
@@ -16,13 +16,16 @@ const todos = [
 
 // /todos/
 router.get('/', function(req, res, next) {
-  res.json(todos);
+    res.json(todos);
 });
 
 router.get('/:id', function(req, res, next) {
-  const { id } = req.body;
-  const found = todos.find(todo => todo.id === id);
-  res.json(found);
+    const { id } = req.params;
+    const found = todos.find(todo => todo.id === Number(id));
+    
+    if(!found) res.status(404).json();
+    res.json(found);
 });
+
 
 module.exports = router;
